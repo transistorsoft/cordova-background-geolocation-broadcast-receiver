@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-background-geolocation-broadcast-receiver"
+    version="0.0.1">
+
+    <name>Cordova BackgroundGeolocation BroadcastReceiver</name>
+    <description>A BroadcastReceiver for you to receive broadcasted events from the Cordova Background Geolocation plugin and implement your own native Android handlers.</description>
+    <license>MIT</license>
+    <keywords>cordova, phonegap, background geolocation, background, location, tracking, geofence, geofencing</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=5.0.0" />
+    </engines>
+
+     <!-- android -->
+    <platform name="android">
+        <source-file src="src/android/EventReceiver.java" target-dir="src/com/transistorsoft/cordova/bggeo" />
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <receiver android:name="com.transistorsoft.cordova.bggeo.EventReceiver">
+                <intent-filter>
+                    <action android:name="com.transistorsoft.locationmanager.event.BOOT" />
+                    <action android:name="com.transistorsoft.locationmanager.event.TERMINATE" />
+                    <action android:name="com.transistorsoft.locationmanager.event.HEARTBEAT" />
+                    <action android:name="com.transistorsoft.locationmanager.event.MOTIONCHANGE" />
+                    <action android:name="com.transistorsoft.locationmanager.event.LOCATION" />
+                    <action android:name="com.transistorsoft.locationmanager.event.GEOFENCE" />
+                    <action android:name="com.transistorsoft.locationmanager.event.HTTP" />
+                    <action android:name="com.transistorsoft.locationmanager.event.SCHEDULE" />
+                    <action android:name="com.transistorsoft.locationmanager.event.ACTIVITYCHANGE" />
+                    <action android:name="com.transistorsoft.locationmanager.event.PROVIDERCHANGE" />
+                    <action android:name="com.transistorsoft.locationmanager.event.GEOFENCESCHANGE" />
+                </intent-filter>
+            </receiver>
+        </config-file>
+     </platform>
+</plugin>
