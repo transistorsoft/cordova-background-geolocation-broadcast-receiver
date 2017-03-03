@@ -3,11 +3,11 @@ Background Geolocation Broadcast Receiver
 
 This plugin is designed for use with the Android platform of the [Cordova Background Geolocation](https://github.com/transistorsoft/cordova-background-geolocation-lt) plugin.  The plugin will add an Android **`BroadcastReceiver`** to your application, capable of receiving events from the `BackgroundGeolocation` plugin in the native Android environment.
 
-You can use this plugin in situations where the user has terminated the app with `BackgroundGeolocation` configured for `{stopOnTerminate: false}`.  In this situation, only the `BackgroundGeolocation` plugin's background service is running &mdash; your Cordova app (ie: your Javascript app) has terminated.  You can use this plugin to implement your own custom functionality in the Android environment.
+You can use this plugin in situations where the user has terminated the app with `BackgroundGeolocation` configured for **`{stopOnTerminate: false}`**.  In this situation, only the **`BackgroundGeolocation`** plugin's background service is running &mdash; your Cordova app (ie: your Javascript app) has terminated.  You can use this plugin to implement your own custom functionality in the Android environment.
 
 An example usage might be to request a new API token for your server endpoint, for tokens that have an expiration time.
 
-Within the Broadcast receiver environment, you have full access to the `BackgroundGeolocation` API and you can execute any documented method, using the Java API.
+Within the Broadcast receiver environment, you have full access to the **`BackgroundGeolocation`** API and you can execute any documented method, using the Java API.
 
 ```java
 public class EventReceiver extends BroadcastReceiver {
@@ -37,7 +37,7 @@ public class EventReceiver extends BroadcastReceiver {
 
 ## Using the plugin ##
 
-The plugin has no Javascript API &mdash; Only a Java `BroadcastReciever`.  The idea of the plugin is that you will fork this repo and implement your own custom functionality, most likely not shared with the public.  You should treat your fork as a private extension of your application code.
+The plugin has no Javascript API &mdash; Only a Java [`BroadcastReciever`](blob/master/src/android/EventReceiver.java).  The idea of the plugin is that **you will fork this repo** and implement **your own** custom functionality, most likely **not shared with the public**.  You should treat your fork **as a private extension** of your application code.
 
 ## Installing the plugin ##
 
@@ -51,7 +51,7 @@ The plugin has no Javascript API &mdash; Only a Java `BroadcastReciever`.  The i
 
 ### Selecting Events
 
-You can choose the `BackgroundGeolocation` events you wish to subscribe to in this plugin's [`plugin.xml`]().  By default, **all** events are subscribed:
+You can choose the `BackgroundGeolocation` events you wish to subscribe to in this plugin's [`plugin.xml`](blob/master/plugin.xml#L23).  By default, **all** events are subscribed:
 
 ```xml
 <receiver android:name="com.transistorsoft.cordova.bggeo.EventReceiver">
@@ -75,7 +75,7 @@ If you're not interested in some particular event, simply delete that element.
 
 ### Implementing Event Handlers
 
-The file [`EventReceiver.java`]() contains example implementations of all the event-handlers.  These methods are all prefixed with **`on{EventName}`**.  These methods are free for you to implement you own custom funcionality.  Eg:
+The file [`EventReceiver.java`](blob/master/src/android/EventReceiver.java) contains example implementations of all the event-handlers.  These methods are all prefixed with **`on{EventName}`**.  These methods are free for you to implement you own custom funcionality.  Eg:
 
 ```java
 class EventReciever extends BroadcastReceiver {
@@ -96,5 +96,5 @@ class EventReciever extends BroadcastReceiver {
 }
 ```
 
-:warning: You should **NOT** modify any method not beginning with **`on{EventName}` (ie: `onReceive`, `getEventName`).
+:warning: You should **NOT** modify any method not beginning with **`on{EventName}`** (ie: `onReceive`, `getEventName`).
 
