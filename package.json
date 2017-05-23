@@ -1,0 +1,42 @@
+{
+  "name": "cordova-background-geolocation-broadcast-receiver",
+  "version": "0.0.1",
+  "description": "This plugin is designed for use with the Android platform of the Cordova Background Geolocation plugin. The plugin will add an Android BroadcastReceiver to your application, capable of receiving events from the BackgroundGeolocation plugin in the native Android environment.",
+  "cordova": {
+    "id": "cordova-background-geolocation-broadcast-receiver",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/transistorsoft/cordova-background-geolocation-broadcast-receiver"
+  },
+  "keywords": [
+    "gps",
+    "location",
+    "tracking",
+    "geolocation",
+    "geofence",
+    "geofencing",
+    "background",
+    "ecosystem:cordova",
+    "cordova-android",
+    "cordova-ios",
+    "cordova-wp8",
+    "cordova",
+    "phonegap"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "Chris Scott, Transistor Software",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/transistorsoft/cordova-background-geolocation-broadcast-receiver/issues"
+  },
+  "homepage": "https://github.com/transistorsoft/cordova-background-geolocation-broadcast-receiver#README"
+}
