@@ -1,7 +1,6 @@
 package com.transistorsoft.cordova.bggeo;
 
 import com.transistorsoft.locationmanager.adapter.BackgroundGeolocation;
-import com.transistorsoft.locationmanager.adapter.TSCallback;
 import com.transistorsoft.locationmanager.logger.TSLog;
 import com.transistorsoft.locationmanager.settings.*;
 import android.content.BroadcastReceiver;
@@ -162,7 +161,8 @@ public class EventReceiver extends BroadcastReceiver {
     */
     private void onActivityChange(Context context, Intent intent) {
         String activityName = intent.getStringExtra("activity");
-        TSLog.logger.debug(activityName);
+        Integer confidence = intent.getIntExtra("confidence", -1);
+        TSLog.logger.debug(activityName + " " + confidence + "%");
     }
 
     /**
@@ -184,9 +184,11 @@ public class EventReceiver extends BroadcastReceiver {
     * @param {JSONArray} off
     */
     private void onGeofencesChange(Context context, Intent intent) {
+        TSLog.logger.debug("geofenceschange: " + intent.getExtras());
         try {
-            JSONArray on = new JSONArray(intent.getStringExtra("on"));
-            JSONArray off = new JSONArray(intent.getStringExtra("off"));
+            JSONObject event = new JSONObject(intent.getStringExtra("geofenceschange"));
+            JSONArray on = event.getJSONArray("on");
+            JSONArray off = event.getJSONArray("off");
             TSLog.logger.debug("on: " + on.toString() + "\noff:" + off.toString());
         } catch (JSONException e) {
             TSLog.logger.error(TSLog.error(e.getMessage()));
