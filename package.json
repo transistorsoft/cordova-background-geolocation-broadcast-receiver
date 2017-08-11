@@ -1,6 +1,6 @@
 {
   "name": "cordova-background-geolocation-broadcast-receiver",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "This plugin is designed for use with the Android platform of the Cordova Background Geolocation plugin. The plugin will add an Android BroadcastReceiver to your application, capable of receiving events from the BackgroundGeolocation plugin in the native Android environment.",
   "cordova": {
     "id": "cordova-background-geolocation-broadcast-receiver",
